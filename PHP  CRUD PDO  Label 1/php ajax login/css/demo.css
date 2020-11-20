@@ -1,0 +1,52 @@
+ body {
+     width: 960px;
+     margin: 0 auto;
+     padding: 5px;
+ }
+
+ .frm_header {
+     min-height: 20px;
+     text-align: center;
+     background: #ddd;
+     margin: 5px 0px;
+     border: 1px solid #ddd;
+     padding: 5px;
+ }
+
+ .frm_main {
+     min-height: 370px;
+     border: 1px solid #ddd;
+     margin: 10px 0px;
+     padding: 20px;
+ }
+
+ .frm_main form {
+     border: 1px solid #ddd;
+/*     text-align: center;*/
+     width: 400px;
+     margin: 0 auto;
+     padding: 20px;
+
+ }
+
+ .frm_footer {
+     min-height: 20px;
+     border: 1px solid #ddd;
+     text-align: center;
+     margin: 5px 0px;
+     background: #ddd;
+ }
+input[type="text"],input[type="password"],input[type="submit"]{
+/*    text-align: center;*/
+    width:50%;
+    height:25px;
+    margin:5px 0px;
+    
+    
+}
+input[type="submit"]{
+    width:25%;
+    height:25px;
+    margin:5px 0px;
+    border-radius:3px;
+}

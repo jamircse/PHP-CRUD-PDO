@@ -1,0 +1,77 @@
+              ............ users guid...............
+
+======================INSERT DATA======================================== 
+  Insert data:   
+       $userData = array(
+            'name' => $_POST['name'],
+            'email' => $_POST['email'],
+            'phone' => $_POST['phone']
+        );
+
+        $insert = $db->insert($tblName,$userData);
+
+        $statusMsg = $insert?'User data has been inserted successfully.':'Some problem occurred, please try again.';
+        $_SESSION['statusMsg'] = $statusMsg;
+        header("Location:index.php");
+
+
+====================== READ DATA ========================================
+   getRows:
+           $table='table name';
+
+           $conditins=array(
+            'select'=>array('id','name','email'),
+            'where'=>array('name'=>'name','email'=>'email'),
+            'order_by'=>'id DESC',
+            'start'=>0,
+            'limit'=>1000,
+            'return_type'=>'single'
+           );
+       ============OR==============
+         $conditins=array(
+            'where'=>array('name'=>'name','email'=>'email'),
+            'order_by'=>'id DESC'  
+           );
+
+           $users = $db->getRows($table,$conditions);
+           
+            if(!empty($users)){
+               $count = 0; 
+               foreach($users as $user){     
+
+               }
+               $count++;
+             }else{
+               <td >No user(s) found......</td>
+            }
+
+
+======================UPDATE DATA========================================
+   Update data :
+           $userData = array(
+                'name' => $_POST['name'],
+                'email' => $_POST['email'],
+                'phone' => $_POST['phone']
+            );
+
+            $condition = array('id' => $_POST['id'],'email'=>$_POST['email'],'phone'=>$_POST['phone']);
+
+            $update = $db->update($tblName,$userData,$condition);
+
+            $statusMsg = $update?'User data has been updated successfully.':'Some problem occurred, please try again.';
+            $_SESSION['statusMsg'] = $statusMsg;
+            header("Location:index.php");
+
+
+======================DELETE DATA========================================
+   Delete data :
+        if(!empty($_GET['id'])){
+            $condition = array('id' => $_GET['id']);
+            $delete = $db->delete($tblName,$condition);
+            $statusMsg = $delete?'User data has been deleted successfully.':'Some problem occurred, please try again.';
+            $_SESSION['statusMsg'] = $statusMsg;
+            header("Location:index.php");
+        }
+
+
+   
